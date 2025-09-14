@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Penn-like serif for wordmark; exact licensed font isn't available on the open web,
+       so we use EB Garamond as a close substitute. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600;700;800&display=swap" rel="stylesheet">
+  <title>UPenn Course Card – Mobile</title>
+  <style>
+    :root{
+      --penn-blue:#011F5B;
+      --penn-red:#990000;
+      --ink:#1b1f23;
+      --muted:#5f6b7a;
+      --bg:#f3f4f6;
+      --card:#ffffff;
+      --link:#1a73e8;
+      --divider:#e5e7eb;
+      --shadow:0 10px 20px rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.06);
+      --radius:14px;
+    }
+
+    html,body{height:100%}
+    body{
+      margin:0;background:radial-gradient(1200px 800px at 50% -200px, #0b2a7a10 0, transparent 60%), var(--bg);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      color:var(--ink);display:grid;place-items:start center;padding:18px;
+    }
+
+    .phone{width:390px;max-width:100%;background:linear-gradient(#0a0a0a,#111);padding:12px;border-radius:28px;box-shadow:0 30px 60px rgba(0,0,0,.25)}
+    .app{background:#1f2937;border-radius:22px;overflow:hidden}
+
+    /* Top bar */
+    .topbar{background:var(--penn-blue);color:#e6edf6;padding:12px 14px;font-size:14px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand .wordmark{font-family:'EB Garamond', Garamond, 'Times New Roman', serif;font-weight:800;letter-spacing:.1px;font-size:20px;line-height:1}
+    .brand .logo{width:24px;height:24px;object-fit:contain;border-radius:3px;background:#fff;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)}
+    .welcome{opacity:.9}
+
+    /* Red breadcrumb */
+    .crumb{background:var(--penn-red);color:#fff;padding:14px;display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.2px}
+    .back{width:30px;height:30px;border-radius:8px;background:#7a0000;display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,.15)}
+    .back svg{width:16px;height:16px;fill:#fff}
+    .crumb .code{font-size:20px}
+    .crumb .spacer{flex:1}
+    .iconbtn{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:#7a0000}
+
+    /* Card */
+    .card{background:var(--card);border-radius:0 0 18px 18px;box-shadow:var(--shadow);padding:16px}
+    .title{font-size:28px;font-weight:800;margin:10px 0 6px}
+    .subtitle{font-size:14px;color:var(--muted);margin-top:2px}
+    .section{margin:14px 0}
+    .kv{font-size:14px;line-height:1.55}
+    .kv .label{color:var(--muted)}
+    .kv a{color:var(--link);text-decoration:none}
+    .kv a:hover{text-decoration:underline}
+    .h2{font-size:14px;font-weight:800;color:#1f2937;background:#eef2ff;padding:10px;border-radius:10px;margin:0 0 10px}
+    .descr{font-size:14px;line-height:1.6;color:#2b3240}
+    .collapse{background:#eef2f7;color:#1f2937;border-radius:12px;padding:12px 14px;font-weight:700;display:flex;align-items:center;justify-content:space-between}
+
+    .cta-wrap{padding:14px}
+    .cta{display:block;width:100%;border:0;cursor:pointer;background:linear-gradient(180deg,var(--penn-blue),#031640);color:#fff;font-weight:800;font-size:16px;border-radius:14px;padding:14px 18px;letter-spacing:.3px;box-shadow:0 8px 16px rgba(1,31,91,.25);transition:transform .06s ease,box-shadow .2s ease}
+    .cta:active{transform:translateY(1px);box-shadow:0 5px 10px rgba(1,31,91,.25)}
+    .cta:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}
+    a:focus-visible{outline:2px solid #93c5fd;outline-offset:2px;border-radius:4px}
+  </style>
+</head>
+<body>
+  <div class="phone" role="region" aria-label="Mobile device preview">
+    <div class="app">
+      <div class="topbar">
+        <div class="brand" aria-label="Penn Header">
+          <!-- Uses the provided shield asset. If it doesn't render in your environment,
+               we can inline it as Base64 upon request. -->
+          <img class="logo" src="/mnt/data/UniversityofPennsylvania_Shield_RGB-2.png" alt="Penn shield"/>
+          <span class="wordmark">Penn</span>
+        </div>
+        <div class="welcome">Welcome, <strong>Bertrand</strong></div>
+      </div>
+
+      <div class="crumb" aria-label="Course breadcrumb">
+        <div class="back" aria-label="Back">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </div>
+        <div class="code">CIS 1400</div>
+        <div class="spacer"></div>
+        <div class="icons" aria-hidden="true" style="display:flex;gap:10px">
+          <div class="iconbtn" title="Home" style="opacity:.9"></div>
+          <div class="iconbtn" title="Links" style="opacity:.9"></div>
+        </div>
+      </div>
+
+      <div class="card" role="main">
+        <div class="title">CIS 1400</div>
+        <div class="subtitle">Section 401, CRN 60002</div>
+        <h2 class="subtitle" style="font-weight:700;color:#111;margin:10px 0 0">Introduction to Cognitive Science</h2>
+
+        <div class="section kv" style="margin-top:8px">
+          <div><span class="label">Last Updated</span> 9/14/2025, 4:14:21 PM</div>
+          <div><span class="label">Section Status:</span> Active</div>
+          <div><span class="label">Schedule Type:</span> Lecture</div>
+          <div><span class="label">Instruction Method:</span> In Class</div>
+          <div><span class="label">Campus:</span> Philadelphia</div>
+          <div><span class="label">Credit:</span> 1</div>
+          <div><span class="label">Scheduled With</span> <a href="#">COGS 1001, section 401</a></div>
+          <div><span class="label">Scheduled With</span> <a href="#">LING 1005, section 401</a></div>
+          <div><span class="label">Scheduled With</span> <a href="#">PHIL 1840, section 401</a></div>
+          <div><span class="label">Scheduled With</span> <a href="#">PSYC 1333, section 401</a></div>
+          <div><span class="label">Maximum Enrollment:</span> 200 / <span class="label">Seats Avail:</span> 4</div>
+        </div>
+
+        <div class="h2">COURSE DESCRIPTION</div>
+        <p class="descr">
+          How do minds work? This course surveys a wide range of answers to this question from disciplines ranging from philosophy to neuroscience. The course devotes special attention to the use of simple computational and mathematical models. Topics include perception, learning, memory, decision making, and language. The course shows how the different views from the parent disciplines interact and identifies some common themes among the theories that have been proposed. The course pays particular attention to the distinctive role of computation in such theories and provides an introduction to some of the main directions of current research in the field. It is a requirement for the BA in Cognitive Science, the BAS in Computer and Cognitive Science, and the minor in Cognitive Science, and it is recommended for students taking the dual degree in Computer and Cognitive Science.
+        </p>
+
+        <div class="section">
+          <div class="collapse">REGISTRATION RESTRICTIONS <span aria-hidden="true">▸</span></div>
+        </div>
+      </div>
+
+      <div class="cta-wrap" role="contentinfo">
+        <button class="cta" aria-label="Add course to plan">ADD</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
